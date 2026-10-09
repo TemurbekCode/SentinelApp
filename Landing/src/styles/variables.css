@@ -1,0 +1,23 @@
+:root {
+  --bg: #0a0e14;
+  --bg2: #0c1119;
+  --panel: #101724;
+  --panel2: #141c2b;
+  --border: #1d2a3d;
+  --border2: #2a3a55;
+  --text: #e6edf3;
+  --text2: #8b98a9;
+  --text3: #5b6779;
+
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --blue: #38bdf8;
+  --violet: #a78bfa;
+
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  --sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --nav-h: 64px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}

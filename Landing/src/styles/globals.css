@@ -1,0 +1,69 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+
+body {
+  background: radial-gradient(1100px 560px at 78% -8%, #111c30 0%, var(--bg) 55%) no-repeat, var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; }
+ul, ol { list-style: none; }
+button { font: inherit; color: inherit; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #22314a; border-radius: 6px; }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 100;
+  background: var(--panel2); color: var(--text);
+  border: 1px solid var(--border2); border-radius: 8px; padding: 8px 14px;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+/* ---- motion primitives ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .55s var(--ease) var(--reveal-delay, 0ms),
+              transform .55s var(--ease) var(--reveal-delay, 0ms);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+.fade-up { opacity: 0; animation: fade-up .7s var(--ease) var(--d, 0ms) forwards; }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .fade-up { opacity: 1; }
+  .draw { stroke-dashoffset: 0 !important; }
+}
